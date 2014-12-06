@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Test</title>
+  <meta name="description" content="Gender Field test">
+  <meta name="author" content="Charles Wagner Jr">
+
+  <link rel="stylesheet" href="jquery.genderField.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+	<h1>Test for Gender Field</h1>
+	<label for="gender">Gender:</label>
+	<input type="text" id="gender" name="gender" value=""/>
+	
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="jquery.genderField.js"></script>
+	<script>
+	$(document).ready(function() {
+		$("#gender").genderField({showArrow:false,additionalGenders:['third gender']});
+	});
+	</script>
+</body>
+</html>
