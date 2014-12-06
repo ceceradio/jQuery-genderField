@@ -18,6 +18,7 @@
 		"genderweird",
 		"gender fluid",
 		"intergender",
+		"intersex",
 		"male",
 		"man",
 		"masculine",
