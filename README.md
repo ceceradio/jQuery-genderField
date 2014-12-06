@@ -1,6 +1,6 @@
 # jQuery Gender Field
 
-A transgender friendly jQuery plugin for gender form fields. Collect semi-structured data from your forms.
+A jQuery plugin for transgender friendly gender form fields. Collect semi-structured data from your forms.
 You're probably already storing gender as a string, so why not allow your users to tell you more?
 
 [Try it on jsfiddle!](http://jsfiddle.net/Lda8yvsc/)
