@@ -99,8 +99,13 @@
 			}
 			// prefer not to disclose is placed at the bottom
 			// if it's already in the list, put it back at the bottom
-			if (dropdown.find("span.prefer_not_to_disclose").length==0)
-				dropdown.append("<span class='prefer_not_to_disclose'>prefer not to disclose</span>");
+			if (dropdown.find("span.prefer_not_to_disclose").length==0) {
+				$("<span class='prefer_not_to_disclose'>prefer not to disclose</span>").appendTo(dropdown)
+				.click(function() {
+					dropdown.parent().find('input').val($(this).text()).focus();
+					findGenders(dropdown, $(this).text());
+				});
+			}
 			else
 				dropdown.find("span.prefer_not_to_disclose").detach().appendTo(dropdown);
 		}
