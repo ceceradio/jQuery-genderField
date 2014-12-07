@@ -1,38 +1,38 @@
 (function ( $ ) {
 	var genders = [
-		"agender",
-		"androgyne",
-		"androgynous",
-		"bigender",
-		"cis female",
-		"cis feminine",
-		"cis male",
-		"cis masculine",
-		"cis woman",
-		"demigirl",
-		"demiguy",
-		"female",
-		"feminine",
-		"femme",
-		"genderqueer",
-		"genderweird",
-		"gender fluid",
-		"intergender",
-		"intersex",
-		"male",
-		"man",
-		"masculine",
-		"neutrois",
-		"nonbinary",
-		"other",
-		"pangender",
-		"trans female",
-		"trans male",
-		"trans man",
-		"trans feminine",
-		"trans femme",
-		"trans woman",
-		"woman"
+		"Agender",
+		"Androgyne",
+		"Androgynous",
+		"Bigender",
+		"Cis Female",
+		"Cis Feminine",
+		"Cis Male",
+		"Cis Masculine",
+		"Cis Woman",
+		"Demigirl",
+		"Demiguy",
+		"Female",
+		"Feminine",
+		"Femme",
+		"Genderqueer",
+		"Genderweird",
+		"Gender Fluid",
+		"Intergender",
+		"Intersex",
+		"Male",
+		"Man",
+		"Masculine",
+		"Neutrois",
+		"Nonbinary",
+		"Other",
+		"Pangender",
+		"Trans Female",
+		"Trans Male",
+		"Trans Man",
+		"Trans Feminine",
+		"Trans Femme",
+		"Trans Woman",
+		"Woman"
 	];
 	$.fn.genderField = function(action) {
 		genders.sort();
@@ -113,7 +113,8 @@
 		if (typeof action == "undefined" || typeof action == "object") {
 			var options = {
 				showArrow: true,
-				additionalGenders: []
+				additionalGenders: [],
+				lowercase: true
 			};
 			if (typeof action == "object") {
 				options = $.extend({}, options, action);
@@ -124,6 +125,11 @@
 			var wrapper = $("<div></div>").css('position','relative').css('display',this.css('display')).addClass("genderField-wrapper");
 			if (options.showArrow)
 				wrapper.addClass("genderFieldSelectArrow");
+			if (options.lowercase) {
+				for(var i = 0; i < genders.length; i++) {
+					genders[i] = genders[i].toLowerCase();
+				}
+			}
 			this.addClass("genderField").wrap(wrapper);
 			
 			var dropdown = $("<div></div>").addClass("genderField-dropdown");
