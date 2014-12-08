@@ -38,11 +38,16 @@
 		genders.sort();
 		// size our dropdown box based on the input box
 		function resize(input) {
-			var totalWidth = input.outerWidth();
+			var dropdown = input.parent().find(".genderField-dropdown");
+			var innerWidth = dropdown.outerWidth() - dropdown.innerWidth();
+			var totalWidth = input.outerWidth()-innerWidth;
 			var totalHeight = input.outerHeight()+input.position().top;
 			var leftOffset = (input.position().left+parseInt(input.css('margin-left'),10));
-			input.parent().find(".genderField-dropdown")
-				.width(totalWidth)
+			// possible ie7 workaround for position().left returning an incorrect value
+			if (input.position().left==0 && parseInt(input.css('left'),10) > 0) {
+				leftOffset += parseInt(input.css('left'),10)
+			}
+			dropdown.width(totalWidth)
 				.css('top',totalHeight.toString()+"px")
 				.css('left',leftOffset.toString()+"px");
 		}
@@ -143,6 +148,13 @@
 			var DOWN = 40;
 			var ENTER = 13;
 			
+			dropdown.mouseenter(function() {
+				dropdown.data('focus',true);
+			});
+			dropdown.mouseout(function() { 
+				dropdown.data('focus',false);
+			});
+			
 			this.on("keydown", function(event) {
 				if (self.is(":focus")) {
 					var dropdown = self.parent().find('.genderField-dropdown');
@@ -226,9 +238,17 @@
 			});
 			
 			this.blur(function(event) {
+				var dropdown = self.parent().find('.genderField-dropdown');
+				setTimeout(function() {
+					if ($(document.activeElement).parents('.genderField-wrapper').length==0 && dropdown.data('focus') == false) {
+						dropdown.hide();
+					}
+				},200);
+			});
+			dropdown.blur(function(event) {
+				var dropdown = self.parent().find('.genderField-dropdown');
 				setTimeout(function() {
 					if ($(document.activeElement).parents('.genderField-wrapper').length==0) {
-						var dropdown = $(self).parent().find('.genderField-dropdown');
 						dropdown.hide();
 					}
 				},200);
