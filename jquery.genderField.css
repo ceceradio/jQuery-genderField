@@ -1,12 +1,6 @@
-input {
-	margin-left:12px;
-	position:relative;
-	left:12px;
-}
 .genderField-wrapper {
 	position:relative;
 }
-
 .genderField-wrapper.genderFieldSelectArrow input {
 	background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='40,15 25,37 10,15'/></svg>");
 	background-repeat:no-repeat;
