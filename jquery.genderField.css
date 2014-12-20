@@ -11,7 +11,8 @@
 .genderField-dropdown { 
 	position:absolute;
 	border:1px solid #ccc;
-	height:10em;
+	min-height:1em;
+	max-height:10em;
 	overflow-y: scroll;
 	z-index: 9999;
 	background:#fff;

@@ -49,7 +49,7 @@
             if (typeof options.additionalGenders.length !== "undefined" && options.additionalGenders.length>0) {
                 genders = genders.concat(options.additionalGenders);
             }
-            if (typeof options.genders !== "undefined" && typeof options.genders.length !== "undefined" && options.genders.length>0) {
+            if (typeof options.genders.length !== "undefined" && options.genders.length>0) {
                 genders = options.genders;
             }
             // size our dropdown box based on the input box
@@ -85,7 +85,7 @@
                         // against each token of our value
                         for (var k = 0; k < valueComponents.length; k++) {
                             // if there is a partial match starting at the beginning of both tokens
-                            if (components[j].indexOf(valueComponents[k]) === 0) {
+                            if (components[j].toLowerCase().indexOf(valueComponents[k].toLowerCase()) === 0) {
                                 // insert or append if the element doesn't exist in the list
                                 if (dropdown.find("span."+genders[i].replace(/\s/,"_")).length==0) {
                                     var added = false
@@ -105,6 +105,8 @@
                                     element.click(function() {
                                         dropdown.parent().find('input').val($(this).text()).focus();
                                         findGenders(dropdown, $(this).text());
+                                        if (dropdown.find("span").length == 1)
+                                            dropdown.hide();
                                     });
                                 }
                                 // we found a match for this gender, so record it and break out
@@ -132,7 +134,10 @@
                     else
                         dropdown.find("span.prefer_not_to_disclose").detach().appendTo(dropdown);
                 }
-                
+                if (dropdown.find("span").length == 0)
+                    dropdown.hide();
+                else
+                    dropdown.show();
             }
             this.each(function(idx,element) {
                 var $this = $(element);
@@ -149,8 +154,8 @@
                 var dropdown = $("<div></div>").addClass("genderField-dropdown");
                 $this.parent().append(dropdown);
                 resize($this);
-                dropdown.hide();
                 findGenders(dropdown, $this.val());
+                dropdown.hide();
                 var self = $this;
 
                 var UP = 38;
