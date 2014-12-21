@@ -15,16 +15,24 @@
 </head>
 
 <body>
-	<h1>Test for Gender Field</h1>
+	<h1>Here's a simple gender field, straight out of the box:</h1>
+	<pre>$("#gender").genderField();</pre>
 	<label for="gender">Gender:</label>
 	<input type="text" id="gender" name="gender" value=""/>
-	
+	<h1>Let's override the genders included:</h1>
+	<pre>$("#gender2").genderField({genders: ['Male', 'Female', 'Nonbinary', 'None']});</pre>
+	<input type="text" id="gender2" name="gender2" value=""/>
+	<h1>We can also remove the "prefer not to disclose" option:</h1>
+	<pre>$("#gender3").genderField({genders: ['Male', 'Female', 'Nonbinary', 'None'], allowPreferNotToDisclose: false});</pre>
+	<input type="text" id="gender3" name="gender3" value=""/>
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script src="jquery.genderField.js"></script>
 	<script>
 	$(document).ready(function() {
 		$("#gender").genderField();
+		$("#gender2").genderField({genders: ['Male', 'Female', 'Nonbinary', 'None']});
+		$("#gender3").genderField({genders: ['Male', 'Female', 'Nonbinary', 'None'], allowPreferNotToDisclose: false});
 	});
 	</script>
 </body>

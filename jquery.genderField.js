@@ -49,7 +49,7 @@
             if (typeof options.additionalGenders.length !== "undefined" && options.additionalGenders.length>0) {
                 genders = genders.concat(options.additionalGenders);
             }
-            if (typeof options.genders.length !== "undefined" && options.genders.length>0) {
+            if (typeof options.genders !== "undefined" && typeof options.genders.length !== "undefined" && options.genders.length>0) {
                 genders = options.genders;
             }
             // size our dropdown box based on the input box
