@@ -30,7 +30,45 @@ And that's it!
 
 `.genderField-dropdown` and `.genderField-dropdown span` can easily be styled using additional CSS.
 
-## Additional Options
+## Default Genders
+
+This is by no means a complete list of all genders, but captures many common genders.
+
+* Agender
+* Androgyne
+* Androgynous
+* Bigender
+* Cis Female
+* Cis Feminine
+* Cis Male
+* Cis Masculine
+* Cis Woman
+* Demigirl
+* Demiguy
+* Female
+* Feminine
+* Femme
+* Genderqueer
+* Genderweird
+* Gender Fluid
+* Intergender
+* Intersex
+* Male
+* Man
+* Masculine
+* Neutrois
+* Nonbinary
+* Other
+* Pangender
+* Trans Female
+* Trans Male
+* Trans Man
+* Trans Feminine
+* Trans Femme
+* Trans Woman
+* Woman
+
+## Additional Genders
 
 Pass an object into `$(selector).genderField()` to add additional genders or turn off the background arrow image.
 e.g.
@@ -39,4 +77,11 @@ e.g.
 $(selector).genderField({showArrow:false, additionalGenders: ['third gender','none']});
 ```
 
+## Options
+
+* `additionalGenders (String[])`: Adds additional genders to the default list.
+* `genders (String[])`: Sets the dropdown list of genders to the provided array.
+* `lowercase (Boolean)`: Sets the gender list to have all lowercase genders. Default is `true`.
+* `showArrow (Boolean)`: Sets the design of the box to show a dropdown arrow or not. Default is `true`.
+* `allowPreferNotToDisclose (Boolean)`: Sets the dropdown to have a "Prefer not to disclose" option or not. Default is `true`.
 
