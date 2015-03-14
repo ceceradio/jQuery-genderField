@@ -87,9 +87,9 @@
                             // if there is a partial match starting at the beginning of both tokens
                             if (components[j].toLowerCase().indexOf(valueComponents[k].toLowerCase()) === 0) {
                                 // insert or append if the element doesn't exist in the list
-                                if (dropdown.find("span."+genders[i].replace(/\s/,"_")).length==0) {
+                                if (dropdown.find("span."+genders[i].replace(/\W/g,"_")).length==0) {
                                     var added = false
-                                    var element = $("<span class='"+genders[i].replace(/\s/,"_")+"'>"+genders[i]+"</span>");
+                                    var element = $("<span class='"+genders[i].replace(/\W/g,"_")+"'>"+genders[i]+"</span>");
                                     // search through all genders listed to find where to insert
                                     dropdown.find("span").each(function() {
                                         if ($(this).text() > genders[i] && !added) {
@@ -119,7 +119,7 @@
                     }
                     // if there was no match found, remove the gender we're looking at from the list
                     if (!found)
-                        dropdown.find("span."+genders[i].replace(/\s/,"_")).remove();
+                        dropdown.find("span."+genders[i].replace(/\W/g,"_")).remove();
                 }
                 // prefer not to disclose is placed at the bottom
                 // if it's already in the list, put it back at the bottom
