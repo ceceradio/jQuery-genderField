@@ -1,0 +1,23 @@
+{
+  "name": "jQuery-genderField",
+  "version": "0.0.1",
+  "homepage": "https://github.com/satsukitv/jQuery-genderField",
+  "authors": [
+    "Charlie Wagner <me@satsuki.tv>"
+  ],
+  "description": "A jQuery plugin for better gender form fields.",
+  "main": "jquery.genderField.js",
+  "keywords": [
+    "gender",
+    "jquery",
+    "form"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
